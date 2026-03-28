@@ -109,22 +109,22 @@ body {
     justify-content: flex-start;
 }
 
-/* Character Styling - No fixed gaps */
+/* Character Styling - Optimized Size */
 .scene-container {
     width: 100%;
-    height: auto; /* Let it shrink to content */
-    min-height: 250px; 
+    height: auto; 
+    min-height: 180px; /* Reduced from 250px */
     display: flex;
     justify-content: center;
     align-items: flex-end;
     gap: 15px;
     position: relative;
-    margin-bottom: 10px;
-    padding-top: 10px;
+    margin-bottom: 5px; /* Tighter spacing */
+    padding-top: 5px;
 }
 
 .character-unit {
-    width: clamp(250px, 30vw, 400px); 
+    width: clamp(120px, 15vw, 200px); /* Halved from 400px max */
     text-align: center;
     transition: 0.3s;
     display: flex;
@@ -133,27 +133,29 @@ body {
     justify-content: flex-end;
 }
 
+.character-unit.active { transform: translateY(-5px); }
+
 .character-name-tag {
     background: var(--gold);
     color: var(--dark-brown);
-    padding: 8px 30px;
-    border-radius: 15px;
-    border: 5px solid var(--dark-brown);
+    padding: 6px 20px;
+    border-radius: 12px;
+    border: 3px solid var(--dark-brown);
     font-weight: bold;
-    font-size: 1.6rem;
+    font-size: 1.1rem; /* Scaled down */
     position: relative;
-    bottom: 5px;
+    bottom: 2px;
     z-index: 10;
-    box-shadow: 4px 4px 0 rgba(0,0,0,0.1);
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.1);
 }
 
 .character-sprite {
-    width: 100%; /* Fill the unit width */
+    width: 85%; /* Slightly inside original unit for padding */
     height: auto;
-    max-height: 550px; /* Cap size so it doesn't break layout */
+    max-height: 280px; /* Reduced from 550px for sharpness */
     object-fit: contain;
     animation: bounce 2s infinite ease-in-out;
-    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.2));
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.15));
 }
 
 /* Fact-Check Buttons & Literacy Cards - More Interactive */
@@ -192,23 +194,23 @@ body {
     box-shadow: 0 6px 0 var(--gold-dark);
 }
 
-/* Dialogue Wrapper - Massive Scale Up */
+/* Dialogue Wrapper - Balanced Scale */
 .dialogue-wrapper {
     width: 95%;
-    max-width: 1100px; /* Increased from 900px */
+    max-width: 950px; 
     background: white;
-    border: 6px solid var(--dark-brown);
-    border-radius: clamp(30px, 4vw, 50px);
-    padding: clamp(30px, 4vw, 50px);
+    border: 5px solid var(--dark-brown);
+    border-radius: 35px;
+    padding: 20px 35px;
     position: relative;
-    margin: 20px 0;
-    box-shadow: 12px 12px 0 rgba(0,0,0,0.1);
-    min-height: 150px;
+    margin: 10px 0;
+    box-shadow: 8px 8px 0 rgba(0,0,0,0.1);
+    min-height: 100px;
 }
 
 .dialogue-text { 
-    font-size: clamp(1.3rem, 2.5vw, 2rem); /* Increased font size */
-    line-height: 1.6; 
+    font-size: 1.4rem; 
+    line-height: 1.5; 
     margin: 0; 
 }
 
