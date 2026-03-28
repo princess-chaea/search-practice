@@ -10,6 +10,17 @@ const gameConfig = {
         piggo: 'assets/images/characters/piggo.png',
         uutan: 'assets/images/characters/uutan.png'
     },
+    names: {
+        tantei: '엉덩이 탐정',
+        brown: '브라운',
+        maltais: '말티즈 서장',
+        hebecha: '헤베차 형사',
+        bull: '불도그 형사',
+        kaito_u: '괴도 유',
+        berry: '베리',
+        piggo: '부타코',
+        uutan: '우탕'
+    },
     defaultImage: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"%3E%3Ccircle cx="50" cy="50" r="40" fill="%23ccc"/%3E%3Ctext x="50" y="55" font-family="Arial" font-size="20" text-anchor="middle" fill="%23666"%3E?%3C/text%3E%3C/svg%3E'
 };
 
@@ -17,21 +28,21 @@ const states = {
     start: {
         title: "사건 개요 브리핑",
         chars: ["maltais", "hebecha"],
-        dialogue: "실례지만, 긴급 상황입니다! 괴도 유가 '견찰서'의 보물인 <span style='color:red; font-weight:bold;'>인터넷 평화의 고구마</span>를 훔쳐갔습니다!",
+        dialogue: "실례지만, 긴급 상황입니다! <span class='name-kaito'>괴도 유</span>가 '견찰서'의 보물인 <span style='color:red; font-weight:bold;'>인터넷 평화의 고구마</span>를 훔쳐갔습니다!",
         buttonText: "수사 협조하기",
         next: "tantei_intro"
     },
     tantei_intro: {
         title: "엉덩이 탐정의 등장",
         chars: ["tantei", "brown"],
-        dialogue: "흠... 냄새가 나는군요. 괴도 유가 남긴 디지털 흔적을 추적해야겠습니다. 조수, 준비됐나?",
+        dialogue: "흠... 냄새가 나는군요. <span class='name-kaito'>괴도 유</span>가 남긴 디지털 흔적을 추적해야겠습니다. <span class='name-brown'>브라운</span>, 준비됐나?",
         buttonText: "준비됐습니다!",
         next: "literacy_training"
     },
     literacy_training: {
         title: "디지털 리터러시 훈련",
         chars: ["brown"],
-        dialogue: "탐정님! 디지털 세계를 수사하려면 도구의 차이를 알아야 해요. <br><strong>브라우저</strong>는 인터넷으로 가는 '통로'고, <strong>검색 엔진</strong>은 그 안에서 정보를 찾아주는 '지도'예요!",
+        dialogue: "<span class='name-tantei'>탐정님</span>! 디지털 세계를 수사하려면 도구의 차이를 알아야 해요. <br><strong>브라우저</strong>는 인터넷으로 가는 '통로'고, <strong>검색 엔진</strong>은 그 안에서 정보를 찾아주는 '지도'예요!",
         content: `
             <div class="interaction-area fade-in">
                 <div class="literacy-card-container">
@@ -55,7 +66,7 @@ const states = {
     mission1: {
         title: "미션 1: 괴도 유의 발자국",
         chars: ["tantei"],
-        dialogue: "괴도 유가 특수 신발을 신었군요. 이 신발은 '세상에서 가장 작은 사슴'의 가죽으로 만들었습니다. 그 동물의 이름은 무엇일까요?",
+        dialogue: "<span class='name-kaito'>괴도 유</span>가 특수 신발을 신었군요. 이 신발은 '세상에서 가장 작은 사슴'의 가죽으로 만들었습니다. 그 동물의 이름은 무엇일까요?",
         hint: "힌트: 아주 작은 사슴 (두 글자)",
         inputType: "search",
         placeholder: "동물 이름을 입력하세요",
@@ -65,14 +76,14 @@ const states = {
     fact_check_intro: {
         title: "긴급! 베리의 제보",
         chars: ["berry"],
-        dialogue: "탐정님! 제가 SNS에서 봤는데, 괴도 유가 이미 바다 건너 섬으로 도망갔대요! 이게 진짜일까요? 확인해봐야 해요!",
+        dialogue: "<span class='name-tantei'>탐정님</span>! 제가 SNS에서 봤는데, <span class='name-kaito'>괴도 유</span>가 이미 바다 건너 섬으로 도망갔대요! 이게 진짜일까요? 확인해봐야 해요!",
         buttonText: "팩트 체크 시작",
         next: "mission_fact_check"
     },
     mission_fact_check: {
         title: "미션 2: 팩트 체크 (진실 혹은 거짓)",
         chars: ["tantei", "brown"],
-        dialogue: "베리의 정보가 믿을만한지 <strong>팩트 체크</strong>를 해보세. <br>'출처가 불분명한 SNS 글'은 바로 믿어도 될까?",
+        dialogue: "<span class='name-berry'>베리</span>의 정보가 믿을만한지 <strong>팩트 체크</strong>를 해보세. <br>'출처가 불분명한 SNS 글'은 바로 믿어도 될까?",
         content: `
             <div class="interaction-area fact-check-box fade-in">
                 <button class="fact-btn true" onclick="checkFact(true)">진실이다</button>
@@ -94,7 +105,7 @@ const states = {
     final_confrontation: {
         title: "최종 대결: 실례지만 실례하겠습니다!",
         chars: ["tantei", "kaito_u"],
-        dialogue: "괴도 유! 자네의 디지털 흔적은 모두 파악했네. <br>이제 보물을 돌려받아야겠군. 여기서 끝내주지!",
+        dialogue: "<span class='name-kaito'>괴도 유</span>! 자네의 디지털 흔적은 모두 파악했네. <br>이제 보물을 돌려받아야겠군. 여기서 끝내주지!",
         buttonText: "필살기 발동!!!",
         next: "success"
     },
@@ -130,11 +141,12 @@ function render() {
     let charHtml = '<div class="scene-container">';
     data.chars.forEach((charKey, index) => {
         const img = gameConfig.characters[charKey] || gameConfig.defaultImage;
+        const korName = gameConfig.names[charKey] || charKey;
         const isActive = index === data.chars.length - 1 ? 'active' : '';
         charHtml += `
             <div class="character-unit ${isActive} slide-in-right" style="animation-delay: ${index * 0.2}s">
-                <img src="${img}" class="character-sprite" alt="${charKey}" onerror="this.src='${gameConfig.defaultImage}'">
-                <div style="font-weight:bold; margin-top:5px; background:var(--gold); border-radius:10px; padding:2px 10px;">${charKey.toUpperCase()}</div>
+                <div class="character-name-tag">${korName}</div>
+                <img src="${img}" class="character-sprite" alt="${korName}" onerror="this.src='${gameConfig.defaultImage}'">
             </div>
         `;
     });
