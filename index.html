@@ -8,6 +8,43 @@
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Quick Search Tools Styling */
+        .quick-tools {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .tool-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            font-weight: bold;
+            cursor: pointer;
+            border: 2px solid var(--dark-brown);
+            transition: 0.2s;
+            background: white;
+        }
+
+        .tool-btn img {
+            width: 18px;
+            height: 18px;
+        }
+
+        .tool-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 0 rgba(0,0,0,0.1);
+        }
+
+        .tool-btn.google:hover { border-color: #4285F4; color: #4285F4; }
+        .tool-btn.naver:hover { border-color: #03C75A; color: #03C75A; }
+    </style>
 </head>
 <body>
 
@@ -16,6 +53,16 @@
             <!-- Header -->
             <header class="game-header">
                 <h1 class="case-title">로딩 중...</h1>
+                
+                <!-- Quick Search Tools -->
+                <div class="quick-tools">
+                    <button onclick="window.open('https://www.google.com', '_blank')" class="tool-btn google">
+                        <img src="https://www.google.com/favicon.ico" alt="Google"> 구글 검색
+                    </button>
+                    <button onclick="window.open('https://www.naver.com', '_blank')" class="tool-btn naver">
+                        <img src="https://www.naver.com/favicon.ico" alt="Naver"> 네이버 검색
+                    </button>
+                </div>
             </header>
 
             <!-- Main Content -->
@@ -24,6 +71,14 @@
                     <p>엉덩이 탐정님이 사건 파일을 준비 중입니다...</p>
                 </div>
             </main>
+        </div>
+    </div>
+
+    <!-- Custom Modal Overlay -->
+    <div id="modal-overlay" class="modal-hidden">
+        <div id="modal-box" class="modal-card">
+            <div id="modal-body"></div>
+            <button class="premium-btn" onclick="closeModal()">확인</button>
         </div>
     </div>
 
