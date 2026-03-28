@@ -101,57 +101,59 @@ body {
 /* Main Content Area */
 #game-content {
     flex: 1;
-    padding: 0 2vw 30px 2vw; /* Removed top padding */
+    padding: 10px 2vw 40px 2vw; /* Tightened padding */
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
-    justify-content: flex-start; /* Start from top */
+    justify-content: flex-start;
 }
 
-/* Character Styling - Massive Scale Up */
+/* Character Styling - No fixed gaps */
 .scene-container {
     width: 100%;
-    height: clamp(400px, 60vh, 650px); /* Increased height */
+    height: auto; /* Let it shrink to content */
+    min-height: 250px; 
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    gap: 30px;
+    gap: 15px;
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    padding-top: 10px;
 }
 
 .character-unit {
-    width: clamp(280px, 33%, 450px); 
+    width: clamp(250px, 30vw, 400px); 
     text-align: center;
     transition: 0.3s;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
 }
-
-.character-unit.active { transform: translateY(-10px); }
 
 .character-name-tag {
     background: var(--gold);
     color: var(--dark-brown);
-    padding: 12px 35px;
-    border-radius: 20px;
+    padding: 8px 30px;
+    border-radius: 15px;
     border: 5px solid var(--dark-brown);
     font-weight: bold;
-    font-size: 1.8rem; /* Larger */
+    font-size: 1.6rem;
     position: relative;
-    bottom: -15px;
+    bottom: 5px;
     z-index: 10;
-    display: inline-block;
     box-shadow: 4px 4px 0 rgba(0,0,0,0.1);
 }
 
 .character-sprite {
-    height: 100%; /* Force fill container height */
-    max-height: clamp(400px, 60vh, 650px);
-    width: auto;
+    width: 100%; /* Fill the unit width */
+    height: auto;
+    max-height: 550px; /* Cap size so it doesn't break layout */
     object-fit: contain;
     animation: bounce 2s infinite ease-in-out;
-    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.2));
 }
 
 /* Fact-Check Buttons & Literacy Cards - More Interactive */
