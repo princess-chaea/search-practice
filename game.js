@@ -58,7 +58,8 @@ const states = {
     },
     mission1_berry: {
         chapter: "LEVEL 1: 기망의 베리 (1/5)",
-        progress: 5,
+        progress: 0,
+        impactText: "범인 발견!! 추격을 시작합니다!",
         title: "기초 미션 - 동물의 비밀",
         chars: ["berry"],
         dialogue: "안녕, 멍청한 탐정들! <br>'지상에서 가장 빨리 달리는 동물의 이름'이 무엇일까요? <br>모르면 빨리 찾아보시지!",
@@ -71,6 +72,7 @@ const states = {
     mission1_2: {
         chapter: "LEVEL 1: 기망의 베리 (2/5)",
         progress: 25,
+        impactText: "단서를 찾았습니다! 조금씩 가까워지고 있어요!",
         title: "기초 미션 - 거대한 생명체",
         chars: ["berry"],
         dialogue: "제법이군! 그럼 이건 어때? <br>'지구상에서 몸집이 가장 거대한 동물의 이름'은 무엇일까요?",
@@ -83,6 +85,7 @@ const states = {
     mission1_3: {
         chapter: "LEVEL 1: 기망의 베리 (3/5)",
         progress: 50,
+        impactText: "거리가 절반으로 줄었습니다! 힘내세요!!",
         title: "기초 미션 - 하늘과 맞닿은 곳",
         chars: ["berry"],
         dialogue: "흥! 그럼 '세계에서 가장 높은 산의 이름'은 어디지?",
@@ -95,6 +98,7 @@ const states = {
     mission1_4: {
         chapter: "LEVEL 1: 기망의 베리 (4/5)",
         progress: 75,
+        impactText: "범인의 뒷모습이 보입니다! 거의 다 잡았어요!!",
         title: "기초 미션 - 나라의 상징",
         chars: ["berry"],
         dialogue: "운이 좋았군! 우리 나라를 상징하는 '나라꽃의 이름'은 무엇일까요?",
@@ -106,6 +110,8 @@ const states = {
     },
     mission1_5: {
         chapter: "LEVEL 1: 기망의 베리 (5/5)",
+        progress: 90,
+        impactText: "코앞입니다!! 마지막 일격으로 검거하세요!!!",
         title: "기초 미션 - 우리 땅 독도",
         chars: ["berry"],
         dialogue: "마지막이다! 우리 땅 '독도가 속해 있는 행정구역(도)'의 이름은 무엇일까?",
@@ -194,7 +200,8 @@ const states = {
     },
     mission3_uutan: {
         chapter: "LEVEL 3: 암호의 우탕 (1/5)",
-        progress: 5,
+        progress: 0,
+        impactText: "우탕의 기지를 발견했습니다! 추격 시작!!",
         title: "정밀 수사: 복합 정보 검색",
         chars: ["brown", "uutan"],
         dialogue: "단순한 검색으로는 안 되겠어요. <br>'북촌 한옥 마을'의 정확한 <strong>우편번호 5자리</strong>를 알아와 보시지!",
@@ -207,6 +214,7 @@ const states = {
     mission3_2: {
         chapter: "LEVEL 3: 암호의 우탕 (2/5)",
         progress: 25,
+        impactText: "우탕이 당황하고 있어요! 조금 더 다가갑니다!",
         title: "심화 미션 - 역사의 기록",
         chars: ["uutan"],
         dialogue: "후우우~ 운이 좋았군요. <br>우리 글자 '훈민정음(한글)'이 만들어진 <strong>정확한 연도</strong>는?",
@@ -219,6 +227,7 @@ const states = {
     mission3_3: {
         chapter: "LEVEL 3: 암호의 우탕 (3/5)",
         progress: 50,
+        impactText: "거의 따라잡았습니다! 수사력을 집중하세요!!",
         title: "심화 미션 - 서울의 높이",
         chars: ["uutan"],
         dialogue: "제법이군요. 그럼 'N서울타워(남산타워)' 자체의 <strong>순수 탑 높이</strong>는 몇 미터(m)일까요?",
@@ -231,6 +240,7 @@ const states = {
     mission3_4: {
         chapter: "LEVEL 3: 암호의 우탕 (4/5)",
         progress: 75,
+        impactText: "이제 손에 잡힐 듯 가까워졌습니다!!",
         title: "심화 미션 - 인류의 발자국",
         chars: ["uutan"],
         dialogue: "대단해요. 그럼 지구 밖으로 가볼까요? <br>달에 처음으로 착륙하여 발을 내디딘 우주선 선장의 이름은?",
@@ -243,6 +253,7 @@ const states = {
     mission3_5: {
         chapter: "LEVEL 3: 암호의 우탕 (5/5)",
         progress: 90,
+        impactText: "검거 직전입니다! 마지막 일격을 가하세요!!!",
         title: "심화 미션 - 우주를 향해",
         chars: ["uutan"],
         dialogue: "마지막 문제입니다. 우리 나라 기술로 만든 '최초의 인공위성' 이름은 무엇일까요?",
@@ -517,12 +528,16 @@ function checkAnswer() {
         const impact = document.getElementById('success-impact-overlay');
         const impactText = impact.querySelector('.impact-text');
         
-        // Dynamic Text based on progress
-        const p = data.progress || 0;
-        if (p < 30) impactText.innerText = "범인 발견! 추격 시작!!";
-        else if (p < 60) impactText.innerText = "점점 거리가 좁혀진다!!";
-        else if (p < 85) impactText.innerText = "거의 다 잡았다! 힘내세요!!";
-        else impactText.innerText = "코앞이다! 마지막 일격!!!";
+        // Dynamic Text based on stage impactText or progress
+        if (data.impactText) {
+            impactText.innerText = data.impactText;
+        } else {
+            const p = data.progress || 0;
+            if (p < 30) impactText.innerText = "범인 발견! 추격 시작!!";
+            else if (p < 60) impactText.innerText = "점점 거리가 좁혀진다!!";
+            else if (p < 85) impactText.innerText = "거의 다 잡았다! 힘내세요!!";
+            else impactText.innerText = "코앞이다! 마지막 일격!!!";
+        }
 
         impact.style.display = 'flex';
         wrapper.classList.add('shake');
