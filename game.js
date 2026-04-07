@@ -58,7 +58,7 @@ const states = {
     },
     mission1_berry: {
         chapter: "LEVEL 1: 기망의 베리 (1/5)",
-        progress: 20,
+        progress: 5,
         title: "기초 미션 - 동물의 비밀",
         chars: ["berry"],
         dialogue: "안녕, 멍청한 탐정들! <br>'지상에서 가장 빨리 달리는 동물의 이름'이 무엇일까요? <br>모르면 빨리 찾아보시지!",
@@ -70,7 +70,7 @@ const states = {
     },
     mission1_2: {
         chapter: "LEVEL 1: 기망의 베리 (2/5)",
-        progress: 40,
+        progress: 25,
         title: "기초 미션 - 거대한 생명체",
         chars: ["berry"],
         dialogue: "제법이군! 그럼 이건 어때? <br>'지구상에서 몸집이 가장 거대한 동물의 이름'은 무엇일까요?",
@@ -82,7 +82,7 @@ const states = {
     },
     mission1_3: {
         chapter: "LEVEL 1: 기망의 베리 (3/5)",
-        progress: 60,
+        progress: 50,
         title: "기초 미션 - 하늘과 맞닿은 곳",
         chars: ["berry"],
         dialogue: "흥! 그럼 '세계에서 가장 높은 산의 이름'은 어디지?",
@@ -94,7 +94,7 @@ const states = {
     },
     mission1_4: {
         chapter: "LEVEL 1: 기망의 베리 (4/5)",
-        progress: 80,
+        progress: 75,
         title: "기초 미션 - 나라의 상징",
         chars: ["berry"],
         dialogue: "운이 좋았군! 우리 나라를 상징하는 '나라꽃의 이름'은 무엇일까요?",
@@ -165,7 +165,7 @@ const states = {
         dialogue: "사람들은 때로 **'내가 믿고 싶은 것'**만 믿으려 하는 마음이 있어요. <br>만약 여러분이 고구마를 정말 싫어한다면, 어떤 소문을 더 잘 믿을까요?",
         content: `
             <div class="interaction-area fade-in">
-                <button class="premium-btn" style="background:#4caf50" onclick="showModal('🚨 딩동댕! 내가 평소에 생각하던 것과 일치하는 정보를 더 쉽게 믿게 되는 현상을 \'확증 편향\'이라고 합니다. 부타코는 이 마음을 이용했어요.', () => { currentState='mission2_responsibility'; render(); })">1. 고구마는 맛도 없고 건강에도 나쁘다!</button>
+                <button class="premium-btn" style="background:#4caf50" onclick="showModal('🚨 딩동댕! 내가 평소에 생각하던 것과 일치하는 정보를 더 쉽게 믿게 되는 현상을 &quot;확증 편향&quot;이라고 합니다. 부타코는 이 마음을 이용했어요.', () => { currentState='mission2_responsibility'; render(); })">1. 고구마는 맛도 없고 건강에도 나쁘다!</button>
                 <button class="premium-btn" style="background:#2196f3" onclick="showModal('🚨 땡! 내가 싫어하는 대상을 비난하는 정보를 사람들은 더 쉽게 믿는 경향이 있어요.')">2. 고구마는 영양이 풍부한 최고의 간식이다!</button>
             </div>
         `,
@@ -194,7 +194,7 @@ const states = {
     },
     mission3_uutan: {
         chapter: "LEVEL 3: 암호의 우탕 (1/5)",
-        progress: 20,
+        progress: 5,
         title: "정밀 수사: 복합 정보 검색",
         chars: ["brown", "uutan"],
         dialogue: "단순한 검색으로는 안 되겠어요. <br>'북촌 한옥 마을'의 정확한 <strong>우편번호 5자리</strong>를 알아와 보시지!",
@@ -206,7 +206,7 @@ const states = {
     },
     mission3_2: {
         chapter: "LEVEL 3: 암호의 우탕 (2/5)",
-        progress: 40,
+        progress: 25,
         title: "심화 미션 - 역사의 기록",
         chars: ["uutan"],
         dialogue: "후우우~ 운이 좋았군요. <br>우리 글자 '훈민정음(한글)'이 만들어진 <strong>정확한 연도</strong>는?",
@@ -218,7 +218,7 @@ const states = {
     },
     mission3_3: {
         chapter: "LEVEL 3: 암호의 우탕 (3/5)",
-        progress: 60,
+        progress: 50,
         title: "심화 미션 - 서울의 높이",
         chars: ["uutan"],
         dialogue: "제법이군요. 그럼 'N서울타워(남산타워)' 자체의 <strong>순수 탑 높이</strong>는 몇 미터(m)일까요?",
@@ -230,7 +230,7 @@ const states = {
     },
     mission3_4: {
         chapter: "LEVEL 3: 암호의 우탕 (4/5)",
-        progress: 80,
+        progress: 75,
         title: "심화 미션 - 인류의 발자국",
         chars: ["uutan"],
         dialogue: "대단해요. 그럼 지구 밖으로 가볼까요? <br>달에 처음으로 착륙하여 발을 내디딘 우주선 선장의 이름은?",
@@ -242,7 +242,7 @@ const states = {
     },
     mission3_5: {
         chapter: "LEVEL 3: 암호의 우탕 (5/5)",
-        progress: 95,
+        progress: 90,
         title: "심화 미션 - 우주를 향해",
         chars: ["uutan"],
         dialogue: "마지막 문제입니다. 우리 나라 기술로 만든 '최초의 인공위성' 이름은 무엇일까요?",
@@ -515,6 +515,15 @@ function checkAnswer() {
     if (data.correctAnswers.some(ans => val.includes(ans.toLowerCase()))) {
         // Impact Effect
         const impact = document.getElementById('success-impact-overlay');
+        const impactText = impact.querySelector('.impact-text');
+        
+        // Dynamic Text based on progress
+        const p = data.progress || 0;
+        if (p < 30) impactText.innerText = "범인 발견! 추격 시작!!";
+        else if (p < 60) impactText.innerText = "점점 거리가 좁혀진다!!";
+        else if (p < 85) impactText.innerText = "거의 다 잡았다! 힘내세요!!";
+        else impactText.innerText = "코앞이다! 마지막 일격!!!";
+
         impact.style.display = 'flex';
         wrapper.classList.add('shake');
         
