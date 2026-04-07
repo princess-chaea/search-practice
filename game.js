@@ -17,19 +17,20 @@ const gameConfig = {
         maltais: '말티즈 서장',
         hebecha: '헤베차 형사',
         bull: '불도그 형사',
-        kaito_u: '괴도 유',
+        kaito_u: '<괴도 유>',
         berry: '베리(악당)',
         piggo: '부타코(악당)',
-        uutan: '우탕(악당)'
+        uutan: '우탕(악당)',
+        all: '수사팀 전체'
     },
     defaultImage: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"%3E%3Ccircle cx="50" cy="50" r="40" fill="%23ccc"/%3E%3Ctext x="50" y="55" font-family="Arial" font-size="20" text-anchor="middle" fill="%23666"%3E?%3C/text%3E%3C/svg%3E'
 };
 
 const states = {
     start: {
-        title: "긴급 상황: 괴도 유 연합의 습격",
+        title: "긴급 상황: <괴도 유> 연합의 습격",
         chars: ["maltais", "hebecha", "bull"],
-        dialogue: "큰일입니다! 괴도 유가 그의 조력자 <span class='name-berry'>베리</span>, <span class='name-piggo'>부타코</span>, <span class='name-uutan'>우탕</span>과 함께 <span style='color:red'>황금 고구마</span>를 훔쳐 도망쳤습니다!",
+        dialogue: "큰일입니다! <괴도 유>가 그의 조력자 <span class='name-berry'>베리</span>, <span class='name-piggo'>부타코</span>, <span class='name-uutan'>우탕</span>과 함께 <span style='color:red'>황금 고구마</span>를 훔쳐 도망쳤습니다!",
         buttonText: "연합군 소탕하기!",
         next: "tantei_intro"
     },
@@ -40,11 +41,11 @@ const states = {
         content: `
             <div class="interaction-area fade-in">
                 <div class="literacy-card-container">
-                    <div class="literacy-card" onclick="openInfoModal('browser')">
+                    <div id="card-browser" class="literacy-card" onclick="openInfoModal('browser')">
                         <i>🌐</i> <strong>브라우저</strong>
                         <p style="font-size:0.8rem">인터넷 접속 도구 (크롬 등)</p>
                     </div>
-                    <div class="literacy-card" onclick="openInfoModal('search')">
+                    <div id="card-search" class="literacy-card" onclick="openInfoModal('search')">
                         <i>🔎</i> <strong>검색 엔진</strong>
                         <p style="font-size:0.8rem">정보 찾는 사이트 (구글 등)</p>
                     </div>
@@ -52,17 +53,62 @@ const states = {
             </div>
         `,
         buttonText: "도구 준비 완료!",
+        buttonDisabled: true,
         next: "mission1_berry"
     },
     mission1_berry: {
-        chapter: "LEVEL 1: 기망의 베리",
+        chapter: "LEVEL 1: 기망의 베리 (1/5)",
         title: "기초 미션 - 정확한 검색어 찾기",
         chars: ["berry"],
-        dialogue: "안녕, 멍청한 탐정들! 내가 남긴 가짜 예고장에 속을 줄 알았지? <br>'세상에서 가장 빨리 달리는 동물'이 있는 곳으로 오지 않으면 고구마는 끝이야!",
+        dialogue: "안녕, 멍청한 탐정들! <br>'세상에서 가장 빨리 달리는 동물'이 있는 곳으로 오지 않으면 고구마는 끝이야!",
         hint: "힌트: 지상에서 가장 빠른 포유류의 이름은?",
         inputType: "search",
         placeholder: "동물 이름 입력",
         correctAnswers: ["치타", "cheetah"],
+        next: "mission1_2"
+    },
+    mission1_2: {
+        chapter: "LEVEL 1: 기망의 베리 (2/5)",
+        title: "기초 미션 - 동물의 왕국",
+        chars: ["berry"],
+        dialogue: "제법이군! 그럼 이건 어때? <br>'지구상에서 가장 몸집이 큰 동물'의 이름은?",
+        hint: "힌트: 바다에 사는 거대한 포유류 (3글자)",
+        inputType: "search",
+        placeholder: "동물 이름 입력",
+        correctAnswers: ["대왕고래", "흰긴수염고래"],
+        next: "mission1_3"
+    },
+    mission1_3: {
+        chapter: "LEVEL 1: 기망의 베리 (3/5)",
+        title: "기초 미션 - 세계의 지붕",
+        chars: ["berry"],
+        dialogue: "흥! 그럼 '세계에서 가장 높은 산'은 어디지?",
+        hint: "힌트: 에베... (4글자)",
+        inputType: "search",
+        placeholder: "산 이름 입력",
+        correctAnswers: ["에베레스트", "everest"],
+        next: "mission1_4"
+    },
+    mission1_4: {
+        chapter: "LEVEL 1: 기망의 베리 (4/5)",
+        title: "기초 미션 - 우리 나라의 상징",
+        chars: ["berry"],
+        dialogue: "운이 좋았군! 우리 나라의 국화, '무궁화'는 영어로 무엇일까? <br>아니면 한글로 정확히 입력해봐!",
+        hint: "힌트: 우리 나라를 상징하는 꽃 (3글자)",
+        inputType: "search",
+        placeholder: "꽃 이름 입력",
+        correctAnswers: ["무궁화", "hibiscus"],
+        next: "mission1_5"
+    },
+    mission1_5: {
+        chapter: "LEVEL 1: 기망의 베리 (5/5)",
+        title: "기초 미션 - 우리 땅 독도",
+        chars: ["berry"],
+        dialogue: "마지막이다! 우리 땅 '독도'는 어느 '도'에 속해 있을까?",
+        hint: "힌트: 경상...도 (4글자)",
+        inputType: "search",
+        placeholder: "행정구역 이름 입력 (예: OO도)",
+        correctAnswers: ["경상북도", "경북"],
         next: "mission1_success"
     },
     mission1_success: {
@@ -99,13 +145,37 @@ const states = {
         next: "mission2_factcheck"
     },
     mission2_factcheck: {
-        title: "실습: 정보 교차 검증",
+        title: "실습: 정보 교차 검증 (1단계: 의심)",
         chars: ["brown", "piggo"],
-        dialogue: "부타코의 주장: '고구마 파괴 뉴스'의 출처가 <span style='color:blue'>'탐정TV'</span>라는 개인 유튜브군요. <br>공식 뉴스 사이트(네이버 뉴스 등)에서도 이 소식이 있나요?",
+        dialogue: "부타코의 주장: '고구마 파괴 뉴스'의 출처가 <span style='color:blue'>'탐정TV'</span>라는 개인 유튜브군요. <br>이 정보, 바로 믿어도 될까요?",
         content: `
             <div class="interaction-area fade-in">
-                <button class="fact-btn true" onclick="showModal('🚨 앗! 공식 뉴스에는 그런 소식이 없어요. 속지 마세요!')">뉴스에도 나왔을 거야!</button>
-                <button class="fact-btn fake" onclick="capturePiggo()">뉴스에는 없어, 부타코의 거짓말이야!</button>
+                <button class="premium-btn" onclick="showModal('🚨 딩동댕! 개인 방송은 확인되지 않은 사실일 수 있어요.', () => { currentState='mission2_step2'; render(); })">잠깐! 출처가 불분명해!</button>
+                <button class="premium-btn" onclick="showModal('🚨 땡! 조회수가 많다고 무조건 믿으면 안 돼요.')">조회수 많으니까 진짜야!</button>
+            </div>
+        `,
+        next: "mission2_step2"
+    },
+    mission2_step2: {
+        title: "실습: 정보 교차 검증 (2단계: 확인)",
+        chars: ["tantei", "piggo"],
+        dialogue: "그럼 공식 뉴스 사이트(네이버 뉴스 등)에서도 이 소식이 있는지 확인해봅시다.",
+        content: `
+            <div class="interaction-area fade-in">
+                <button class="fact-btn true" onclick="showModal('🚨 앗! 공식 뉴스에는 그런 소식이 없어요. 속지 마세요!')">뉴스에 나왔을 거야!</button>
+                <button class="fact-btn fake" onclick="showModal('✅ 역시! 공식 뉴스에는 관련 보도가 전혀 없군요.', () => { currentState='mission2_step3'; render(); })">뉴스에는 없어, 부타코의 거짓말이야!</button>
+            </div>
+        `,
+        next: "mission2_step3"
+    },
+    mission2_step3: {
+        title: "실습: 정보 교차 검증 (3단계: 판단)",
+        chars: ["brown"],
+        dialogue: "이제 결론을 내릴 시간입니다. 이 정보의 정체는?",
+        content: `
+            <div class="interaction-area fade-in">
+                <button class="premium-btn" style="background:#f44336" onclick="capturePiggo()">악의적으로 조작된 가짜 뉴스!</button>
+                <button class="premium-btn" style="background:#4caf50" onclick="showModal('🚨 땡! 이미 거짓임이 드러났습니다.')">실수로 잘못 퍼진 소문!</button>
             </div>
         `,
         next: "mission3_intro"
@@ -119,19 +189,64 @@ const states = {
         next: "mission3_uutan"
     },
     mission3_uutan: {
+        chapter: "LEVEL 3: 암호의 우탕 (1/5)",
         title: "정밀 수사: 복합 정보 검색",
         chars: ["brown", "uutan"],
-        dialogue: "단순한 검색으로는 안 되겠어요. <br>먼저 한옥 마을 이름을 찾고, 그곳의 우편번호를 정확히 필터링해야 합니다!",
-        hint: "힌트: 종로구에 위치한 유명한 한옥 보존 지구 (3글자)",
+        dialogue: "단순한 검색으로는 안 되겠어요. <br>'북촌 한옥 마을'의 <strong>우편번호 5자리</strong>를 정확히 알아내야 합니다!",
+        hint: "힌트: 우편번호 5자리 숫자 (서울 종로구 북촌로...)",
         inputType: "search",
-        placeholder: "이름과 우편번호 확인 후 입력",
-        correctAnswers: ["북촌한옥마을", "북촌", "bukchon"],
+        placeholder: "5자리 우편번호 입력 (예: 12345)",
+        correctAnswers: ["03059"],
+        next: "mission3_2"
+    },
+    mission3_2: {
+        chapter: "LEVEL 3: 암호의 우탕 (2/5)",
+        title: "심화 미션 - 역사의 기록",
+        chars: ["uutan"],
+        dialogue: "후우우~ 하나 맞췄군요. <br>우리 글자 '훈민정음(한글)'이 만들어진 <strong>연도</strong>는?",
+        hint: "힌트: 세종대왕님이 한글을 창제하신 해 (4자리 숫자)",
+        inputType: "search",
+        placeholder: "연도 입력 (예: 1900)",
+        correctAnswers: ["1443"],
+        next: "mission3_3"
+    },
+    mission3_3: {
+        chapter: "LEVEL 3: 암호의 우탕 (3/5)",
+        title: "심화 미션 - 서울의 높이",
+        chars: ["uutan"],
+        dialogue: "제법이군요. 그럼 'N서울타워(남산타워)' 자체의 <strong>높이</strong>는 몇 미터(m)일까요? <br>(탑 자체의 높이만 입력하세요!)",
+        hint: "힌트: 236... (소수점 포함하여 정확히 검색!)",
+        inputType: "search",
+        placeholder: "숫자만 입력 (예: 100.5)",
+        correctAnswers: ["236.7"],
+        next: "mission3_4"
+    },
+    mission3_4: {
+        chapter: "LEVEL 3: 암호의 우탕 (4/5)",
+        title: "심화 미션 - 인류의 발자국",
+        chars: ["uutan"],
+        dialogue: "대단해요. 그럼 지구 밖으로 가볼까요? <br>달에 처음으로 발을 내디딘 사람의 풀네임은?",
+        hint: "힌트: 닐 암스트... (6글자)",
+        inputType: "search",
+        placeholder: "이름 입력",
+        correctAnswers: ["닐 암스트롱", "neil armstrong"],
+        next: "mission3_5"
+    },
+    mission3_5: {
+        chapter: "LEVEL 3: 암호의 우탕 (5/5)",
+        title: "심화 미션 - 우주를 향해",
+        chars: ["uutan"],
+        dialogue: "마지막 문제입니다. 우리 나라 최초의 인공위성 이름은?",
+        hint: "힌트: 우리별... (4글자)",
+        inputType: "search",
+        placeholder: "인공위성 이름 입력",
+        correctAnswers: ["우리별 1호", "우리별1호"],
         next: "capture_uutan"
     },
     capture_uutan: {
         title: "우탕 소탕 완료!",
         chars: ["tantei", "uutan"],
-        dialogue: "정보를 정밀하게 분석하고 필터링하는 능력을 갖췄군요! <br>이제 마지막 우두머리, <span class='name-kaito'>괴도 유</span>만 남았습니다.",
+        dialogue: "정보를 정밀하게 분석하고 필터링하는 능력을 갖췄군요! <br>이제 마지막 우두머리, <span class='name-kaito'><괴도 유></span>만 남았습니다.",
         buttonText: "최종 보스에게로!",
         next: "final_battle_intro"
     },
@@ -144,15 +259,38 @@ const states = {
         next: "battle_1"
     },
     battle_1: {
-        title: "최후의 시험: 정보의 가치",
+        title: "최종 대결: 1차 관문 (출처 확인)",
         chars: ["kaito_u"],
-        dialogue: "인터넷에 올라와 있는 모든 정보는 가치가 있다고 생각하나? <br>내가 뿌린 수만 개의 가짜 정보 중 진짜를 찾을 수 있단 말인가!",
+        dialogue: "내가 뿌린 수만 개의 정보 중 진짜를 찾을 수 있단 말인가! <br>정보를 평가할 때 가장 중요한 기준은?",
         content: `
             <div class="interaction-area fade-in">
-                <p style="font-weight:bold;">[질문] 정보를 평가할 때 가장 중요한 기준은?</p>
                 <button class="premium-btn" onclick="showModal('🚨 땡! 조회수가 높다고 진실은 아닙니다.')">1. 높은 조회수</button>
                 <button class="premium-btn" onclick="showModal('🚨 땡! 화려하다고 믿으면 안 됩니다.')">2. 화려한 그래픽</button>
-                <button class="premium-btn" onclick="showModal('✅ 정답! 정보의 출처와 근거를 확인하는 비판적 사고!', () => { nextBattle(); })">3. 정보의 출처와 근거 확인</button>
+                <button class="premium-btn" onclick="showModal('✅ 정답! 다음 단계로!', () => { currentState='battle_2'; render(); })">3. 정보의 출처와 근거 확인</button>
+            </div>
+        `,
+        next: "battle_2"
+    },
+    battle_2: {
+        title: "최종 대결: 2차 관문 (사실과 의견)",
+        chars: ["kaito_u"],
+        dialogue: "흥, 제법이군. 그럼 이건 어떠냐? <br>'이 고구마는 정말 맛있다'는 문장은 사실인가, 의견인가?",
+        content: `
+            <div class="interaction-area fade-in">
+                <button class="premium-btn" onclick="showModal('🚨 땡! 사람마다 다르게 느낄 수 있으니 의견입니다.')">사실(Fact)</button>
+                <button class="premium-btn" onclick="showModal('✅ 정답! 주관적인 가치 판단은 의견이죠!', () => { currentState='battle_3'; render(); })">의견(Opinion)</button>
+            </div>
+        `,
+        next: "battle_3"
+    },
+    battle_3: {
+        title: "최종 대결: 최종 관문 (책임감)",
+        chars: ["kaito_u"],
+        dialogue: "마지막이다! 인터넷에서 정보를 퍼뜨릴 때 가장 조심해야 할 것은?",
+        content: `
+            <div class="interaction-area fade-in">
+                <button class="premium-btn" onclick="showModal('✅ 정답! 타인의 권리와 정보를 존중하는 책임감이 가장 중요합니다!', () => { nextBattle(); })">타인의 권리 존중과 책임감</button>
+                <button class="premium-btn" onclick="showModal('🚨 땡! 속도가 전부는 아닙니다.')">누구보다 빠른 정보 전달</button>
             </div>
         `,
         next: "success"
@@ -166,11 +304,13 @@ const states = {
                 <div class="certificate-container">
                     <div class="cert-seal">🎖️</div>
                     <div class="cert-header">디지털 수사 마스터 훈장</div>
+                    <img src="assets/images/characters/all.png" class="cert-photo" alt="수사팀 전체">
                     <div class="cert-body">
                         수사대원: <strong>명예 탐정</strong><br><br>
-                        기초 검색부터 심화 팩거체크까지<br>
+                        기초 검색부터 심화 팩트체크까지<br>
                         모든 악당을 물리치고 진실을 지켜냈으므로<br>
-                        <strong>최고 등급 리터러시 훈장</strong>을 수여함.
+                        <strong>최고 등급 리터러시 훈장</strong>을 수여함.<br><br>
+                        <p style="text-align:right; font-style:italic;">from 엉덩이 탐정</p>
                     </div>
                 </div>
                 <button class="premium-btn" onclick="location.reload()">새로운 수사 지원하기</button>
@@ -182,6 +322,7 @@ const states = {
 
 let currentState = 'start';
 let isTyping = false;
+let visitedTools = { browser: false, search: false };
 
 // Custom Modal
 function showCustomModal(html, callback) {
@@ -217,10 +358,56 @@ function nextBattle() {
 }
 
 function openInfoModal(type) {
-    let msg = type === 'browser' ? 
-        '<h3>🌐 브라우저</h3><p>인터넷 세상으로 연결해주는 프로그램이에요. (크롬, 엣지 등)</p>' : 
-        '<h3>🔎 검색 엔진</h3><p>수많은 정보 중 원하는 것을 찾아주는 사이트예요. (구글, 네이버 등)</p>';
-    showCustomModal(msg);
+    visitedTools[type] = true;
+    const card = document.getElementById(`card-${type}`);
+    if (card) card.classList.add('visited');
+
+    let content = '';
+    if (type === 'browser') {
+        content = `
+            <h3>🌐 브라우저 (Browser)</h3>
+            <p>인터넷 세상으로 연결해주는 '현관문' 같은 프로그램이에요.</p>
+            <div style="display:flex; gap:20px; margin:20px 0;">
+                <div style="text-align:center">
+                    <img src="assets/images/tools/chrome_icon.png" style="width:80px; height:80px; object-fit:contain;" onerror="this.src='${gameConfig.defaultImage}'">
+                    <p style="font-size:1rem">구글 크롬</p>
+                </div>
+                <div style="text-align:center">
+                    <img src="assets/images/tools/edge_icon.png" style="width:80px; height:80px; object-fit:contain;" onerror="this.src='${gameConfig.defaultImage}'">
+                    <p style="font-size:1rem">MS 엣지</p>
+                </div>
+            </div>
+            <p style="font-size:1.1rem; background:#f0f0f0; padding:10px; border-radius:10px;">
+                💡 <strong>팁:</strong> 주소창에 직접 주소를 치거나, 검색 엔진으로 가는 길을 열어줘요!
+            </p>
+        `;
+    } else {
+        content = `
+            <h3>🔎 검색 엔진 (Search Engine)</h3>
+            <p>수많은 정보 중 내가 원하는 것을 찾아주는 '비서' 같은 사이트예요.</p>
+            <div style="display:flex; flex-direction:column; gap:15px; margin:20px 0; width:100%;">
+                <div style="background:white; border:2px solid #ddd; padding:10px; border-radius:10px;">
+                    <img src="assets/images/tools/google_search.png" style="width:100%; height:auto; border-radius:5px;" onerror="this.src='${gameConfig.defaultImage}'">
+                    <p style="margin-top:5px; font-size:1rem;">구글: 전 세계 정보를 검색할 때 좋아요!</p>
+                </div>
+                <div style="background:white; border:2px solid #ddd; padding:10px; border-radius:10px;">
+                    <img src="assets/images/tools/naver_search.png" style="width:100%; height:auto; border-radius:5px;" onerror="this.src='${gameConfig.defaultImage}'">
+                    <p style="margin-top:5px; font-size:1rem;">네이버: 국내 소식과 블로그 정보를 찾기 편해요!</p>
+                </div>
+            </div>
+        `;
+    }
+    
+    showCustomModal(content, () => {
+        if (visitedTools.browser && visitedTools.search) {
+            const btn = document.querySelector('.premium-btn');
+            if (btn && btn.innerText === "도구 준비 완료!") {
+                btn.disabled = false;
+                btn.style.opacity = "1";
+                btn.style.background = "var(--dark-brown)";
+            }
+        }
+    });
 }
 
 // Rendering
@@ -261,7 +448,8 @@ function render() {
     }
     
     if (data.buttonText) {
-        interactiveHtml += `<button class="premium-btn" onclick="nextStep()">${data.buttonText}</button>`;
+        const isDisabled = data.buttonDisabled ? 'disabled style="opacity:0.5; background:#ccc"' : '';
+        interactiveHtml += `<button class="premium-btn" onclick="nextStep()" ${isDisabled}>${data.buttonText}</button>`;
     }
     interactiveHtml += '</div>';
 
