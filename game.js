@@ -369,11 +369,11 @@ function openInfoModal(type) {
             <p>인터넷 세상으로 연결해주는 '현관문' 같은 프로그램이에요.</p>
             <div style="display:flex; gap:20px; margin:20px 0;">
                 <div style="text-align:center">
-                    <img src="assets/images/tools/chrome_icon.png" style="width:80px; height:80px; object-fit:contain;" onerror="this.src='${gameConfig.defaultImage}'">
+                    <img src="assets/images/tools/chrome_icon.png" style="width:100px; height:100px; object-fit:contain;" onerror="this.src='${gameConfig.defaultImage}'">
                     <p style="font-size:1rem">구글 크롬</p>
                 </div>
                 <div style="text-align:center">
-                    <img src="assets/images/tools/edge_icon.png" style="width:80px; height:80px; object-fit:contain;" onerror="this.src='${gameConfig.defaultImage}'">
+                    <img src="assets/images/tools/edge_icon.png" style="width:100px; height:100px; object-fit:contain;" onerror="this.src='${gameConfig.defaultImage}'">
                     <p style="font-size:1rem">MS 엣지</p>
                 </div>
             </div>
@@ -386,12 +386,12 @@ function openInfoModal(type) {
             <h3>🔎 검색 엔진 (Search Engine)</h3>
             <p>수많은 정보 중 내가 원하는 것을 찾아주는 '비서' 같은 사이트예요.</p>
             <div style="display:flex; flex-direction:column; gap:15px; margin:20px 0; width:100%;">
-                <div style="background:white; border:2px solid #ddd; padding:10px; border-radius:10px;">
-                    <img src="assets/images/tools/google_search.png" style="width:100%; height:auto; border-radius:5px;" onerror="this.src='${gameConfig.defaultImage}'">
+                <div style="background:white; border:2px solid #ddd; padding:10px; border-radius:10px; max-width: 450px; margin: 0 auto;">
+                    <img src="assets/images/tools/google_search.png" style="width:100%; max-height:250px; object-fit:cover; border-radius:5px;" onerror="this.src='${gameConfig.defaultImage}'">
                     <p style="margin-top:5px; font-size:1rem;">구글: 전 세계 정보를 검색할 때 좋아요!</p>
                 </div>
-                <div style="background:white; border:2px solid #ddd; padding:10px; border-radius:10px;">
-                    <img src="assets/images/tools/naver_search.png" style="width:100%; height:auto; border-radius:5px;" onerror="this.src='${gameConfig.defaultImage}'">
+                <div style="background:white; border:2px solid #ddd; padding:10px; border-radius:10px; max-width: 450px; margin: 0 auto;">
+                    <img src="assets/images/tools/naver_search.png" style="width:100%; max-height:250px; object-fit:cover; border-radius:5px;" onerror="this.src='${gameConfig.defaultImage}'">
                     <p style="margin-top:5px; font-size:1rem;">네이버: 국내 소식과 블로그 정보를 찾기 편해요!</p>
                 </div>
             </div>

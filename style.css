@@ -81,15 +81,17 @@ body {
 
 #modal-box {
     background: white;
-    padding: clamp(30px, 5vh, 60px);
+    padding: clamp(30px, 3vh, 50px);
     border-radius: 50px;
     border: 10px solid var(--gold);
-    max-width: 800px; /* Wider */
+    max-width: 900px; 
     width: 90%;
+    max-height: 90vh; /* Added to limit height */
+    overflow-y: auto; /* Added for scrollability */
     text-align: center;
     position: relative;
     box-shadow: 0 0 100px rgba(0,0,0,0.5);
-    font-size: 1.8rem; /* Larger base font */
+    font-size: 1.6rem; 
 }
 
 #modal-overlay.active #modal-box {
