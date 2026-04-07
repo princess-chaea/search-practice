@@ -475,7 +475,7 @@ function render() {
 
     // Chase Bar
     let chaseHtml = '';
-    if (data.progress) {
+    if (data.progress !== undefined) {
         const villainImg = gameConfig.characters[data.chars[data.chars.length-1]];
         chaseHtml = `
             <div class="chase-container fade-in">
