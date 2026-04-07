@@ -355,3 +355,76 @@ body {
 
 .shake { animation: shake 0.5s linear; }
 @keyframes shake { 0%, 100% { transform: translateX(0); } 10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); } 20%, 40%, 60%, 80% { transform: translateX(10px); } }
+
+/* Chase Bar System */
+.chase-container {
+    width: 90%;
+    max-width: 800px;
+    height: 60px;
+    background: rgba(0,0,0,0.05);
+    border-radius: 30px;
+    margin: 20px auto;
+    position: relative;
+    border: 3px dashed var(--gold-dark);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.chase-track {
+    width: 100%;
+    height: 4px;
+    background: var(--gold-dark);
+    position: relative;
+}
+
+.chase-detective {
+    position: absolute;
+    top: -25px;
+    left: 0%;
+    width: 50px;
+    height: 50px;
+    transition: 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 5;
+    filter: drop-shadow(2px 2px 0 white);
+}
+
+.chase-villain {
+    position: absolute;
+    top: -25px;
+    right: 0%;
+    width: 50px;
+    height: 50px;
+    z-index: 4;
+}
+
+.chase-detective img, .chase-villain img {
+    width: 100%; height: 100%; object-fit: contain;
+}
+
+/* Success Impact Overlay */
+#success-impact-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(255,255,255,0.8);
+    background-image: repeating-conic-gradient(from 0deg, #fff 0 15deg, var(--gold) 15deg 30deg);
+    z-index: 2000;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: impactZoom 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes impactZoom {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.impact-text {
+    font-size: 5rem;
+    color: var(--highlight);
+    text-shadow: 5px 5px 0 white;
+    -webkit-text-stroke: 2px var(--dark-brown);
+    animation: bounce 0.5s infinite alternate;
+}
