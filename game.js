@@ -58,10 +58,10 @@ const states = {
     },
     mission1_berry: {
         chapter: "LEVEL 1: 기망의 베리 (1/5)",
-        title: "기초 미션 - 정확한 검색어 찾기",
+        title: "기초 미션 - 동물의 비밀",
         chars: ["berry"],
-        dialogue: "안녕, 멍청한 탐정들! <br>'세상에서 가장 빨리 달리는 동물'이 있는 곳으로 오지 않으면 고구마는 끝이야!",
-        hint: "힌트: 지상에서 가장 빠른 포유류의 이름은?",
+        dialogue: "안녕, 멍청한 탐정들! <br>'지상에서 가장 빨리 달리는 동물의 이름'이 무엇일까요? <br>모르면 빨리 찾아보시지!",
+        hint: "💡 <strong>검색 팁:</strong> 궁금한 내용을 질문하듯 검색창에 입력해 보세요. (예: 가장 빠른 동물)",
         inputType: "search",
         placeholder: "동물 이름 입력",
         correctAnswers: ["치타", "cheetah"],
@@ -69,10 +69,10 @@ const states = {
     },
     mission1_2: {
         chapter: "LEVEL 1: 기망의 베리 (2/5)",
-        title: "기초 미션 - 동물의 왕국",
+        title: "기초 미션 - 거대한 생명체",
         chars: ["berry"],
-        dialogue: "제법이군! 그럼 이건 어때? <br>'지구상에서 가장 몸집이 큰 동물'의 이름은?",
-        hint: "힌트: 바다에 사는 거대한 포유류 (3글자)",
+        dialogue: "제법이군! 그럼 이건 어때? <br>'지구상에서 몸집이 가장 거대한 동물의 이름'은 무엇일까요?",
+        hint: "💡 <strong>검색 팁:</strong> '세상에서 가장 큰 동물' 키워드로 검색하고, 백과사전의 정보를 확인해 보세요.",
         inputType: "search",
         placeholder: "동물 이름 입력",
         correctAnswers: ["대왕고래", "흰긴수염고래"],
@@ -80,10 +80,10 @@ const states = {
     },
     mission1_3: {
         chapter: "LEVEL 1: 기망의 베리 (3/5)",
-        title: "기초 미션 - 세계의 지붕",
+        title: "기초 미션 - 하늘과 맞닿은 곳",
         chars: ["berry"],
-        dialogue: "흥! 그럼 '세계에서 가장 높은 산'은 어디지?",
-        hint: "힌트: 에베... (4글자)",
+        dialogue: "흥! 그럼 '세계에서 가장 높은 산의 이름'은 어디지?",
+        hint: "💡 <strong>검색 팁:</strong> 히말라야 산맥에 있는 가장 높은 봉우리의 정식 명칭을 검색해 보세요.",
         inputType: "search",
         placeholder: "산 이름 입력",
         correctAnswers: ["에베레스트", "everest"],
@@ -91,10 +91,10 @@ const states = {
     },
     mission1_4: {
         chapter: "LEVEL 1: 기망의 베리 (4/5)",
-        title: "기초 미션 - 우리 나라의 상징",
+        title: "기초 미션 - 나라의 상징",
         chars: ["berry"],
-        dialogue: "운이 좋았군! 우리 나라의 국화, '무궁화'는 영어로 무엇일까? <br>아니면 한글로 정확히 입력해봐!",
-        hint: "힌트: 우리 나라를 상징하는 꽃 (3글자)",
+        dialogue: "운이 좋았군! 우리 나라를 상징하는 '나라꽃의 이름'은 무엇일까요?",
+        hint: "💡 <strong>검색 팁:</strong> '대한민국의 국화' 키워드로 검색하고, 그 꽃의 공식 이름을 확인하세요.",
         inputType: "search",
         placeholder: "꽃 이름 입력",
         correctAnswers: ["무궁화", "hibiscus"],
@@ -104,10 +104,10 @@ const states = {
         chapter: "LEVEL 1: 기망의 베리 (5/5)",
         title: "기초 미션 - 우리 땅 독도",
         chars: ["berry"],
-        dialogue: "마지막이다! 우리 땅 '독도'는 어느 '도'에 속해 있을까?",
-        hint: "힌트: 경상...도 (4글자)",
+        dialogue: "마지막이다! 우리 땅 '독도가 속해 있는 행정구역(도)'의 이름은 무엇일까?",
+        hint: "💡 <strong>검색 팁:</strong> 독도의 공식 주소를 검색해 보면 어느 '도'에 속해 있는지 알 수 있어요.",
         inputType: "search",
-        placeholder: "행정구역 이름 입력 (예: OO도)",
+        placeholder: "행정구역 입력 (예: OO도)",
         correctAnswers: ["경상북도", "경북"],
         next: "mission1_success"
     },
@@ -119,63 +119,63 @@ const states = {
         next: "mission2_intro"
     },
     mission2_intro: {
-        chapter: "LEVEL 2: 기만의 부타코",
-        title: "중급 미션 - 팩트 체크 수사",
+        chapter: "LEVEL 2: 기만의 부타코 (1/4)",
+        title: "중급 전략 - 가짜 뉴스의 '속셈'",
         chars: ["piggo"],
-        dialogue: "어머, 베리가 잡혔다고? 하지만 난 달라! <br>내가 SNS에 '현재 고구마는 이미 파괴되었다'는 뉴스를 뿌려놨지. 마을 사람들은 패닉에 빠질 거야!",
-        buttonText: "팩트 체크로 반격하기",
-        next: "literacy_factcheck_3step"
+        dialogue: "어머, 베리가 잡혔다니! 하지만 난 달라요. <br>'현재 마을 고구마는 이미 모두 파괴되어 먹을 수 없다'는 뉴스를 뿌렸거든요! <br>키득키득, 마을이 혼란에 빠지는 걸 구경해 볼까요?",
+        buttonText: "수사 시작: 부타코의 속셈 파악",
+        next: "mission2_motive"
     },
-    literacy_factcheck_3step: {
-        title: "중급 전략: 팩트 체크 3단계",
+    mission2_motive: {
+        title: "실습 1: 왜 가짜 정보를 만들까요?",
         chars: ["tantei"],
-        dialogue: "<span class='name-piggo'>부타코</span>의 가짜 뉴스에 속으면 안 됩니다. <br>선동적인 정보 앞에서는 반드시 <strong>[의심 - 확인 - 판단]</strong> 3단계를 거쳐야 합니다.",
+        dialogue: "부타코가 고구마가 멀쩡한데도 파괴되었다고 거짓말하는 진짜 이유는 무엇일까요? <br>가짜 뉴스가 만들어지는 핵심 이유를 골라보세요.",
         content: `
-            <div class="mission-card" style="background:#fff9c4; border:5px solid var(--gold-dark);">
-                <p style="font-size:1.6rem; margin-bottom:15px;">🚩 <strong>수사대 대응 수칙</strong></p>
-                <div style="text-align:left; display:inline-block; font-size:1.3rem;">
-                    1. <strong>의심</strong>: 자극적인 소문에 멈추기!<br>
-                    2. <strong>확인</strong>: 공식 기사와 대조하기!<br>
-                    3. <strong>판단</strong>: 가짜라면 차단하기!
-                </div>
-                <p style="font-size:0.8rem; margin-top:10px; color:#888;">※ 시청자미디어재단 가이드 참조</p>
+            <div class="interaction-area fade-in">
+                <button class="premium-btn" onclick="showModal('🚨 땡! 마을의 화합을 방해하고 있어요.')">1. 마을 사람들을 화합시키기 위해</button>
+                <button class="premium-btn" onclick="showModal('✅ 정답! 가짜 정보는 자극적인 내용으로 관심을 끌고, 사회에 혼란을 주려고 만들어집니다.', () => { currentState='mission2_checksuspicious'; render(); })">2. 사람들의 관심을 끌어 혼란을 주려고</button>
+                <button class="premium-btn" onclick="showModal('🚨 땡! 실수로 보기엔 너무 치밀한 계획입니다.')">3. 실수로 잘못된 정보를 적어서</button>
             </div>
         `,
-        buttonText: "부타코의 가짜뉴스 검증",
-        next: "mission2_factcheck"
+        next: "mission2_checksuspicious"
     },
-    mission2_factcheck: {
-        title: "실습: 정보 교차 검증 (1단계: 의심)",
+    mission2_checksuspicious: {
+        chapter: "LEVEL 2: 기만의 부타코 (2/4)",
+        title: "실습 2: 의심스러운 단서 찾기",
         chars: ["brown", "piggo"],
-        dialogue: "부타코의 주장: '고구마 파괴 뉴스'의 출처가 <span style='color:blue'>'탐정TV'</span>라는 개인 유튜브군요. <br>이 정보, 바로 믿어도 될까요?",
+        dialogue: "부타코가 올린 SNS 게시물입니다. <br>이 정보에서 가장 의심스러운 부분은 어디일까요?",
+        content: `
+            <div class="mission-card" style="text-align:left; background:white; border:4px solid #f44336; padding:20px; border-radius:15px;">
+                <p style="font-weight:bold; color:#f44336; font-size:1.4rem;">🚨 [긴급/속보] 마을 고구마 전량 폐기!!!</p>
+                <p>지금 당장 고구마를 모두 버리세요! 안 그러면 병에 걸립니다! <br>이 소식을 널리 퍼뜨려 가족들을 지키세요!!!</p>
+                <p style="color:#888; font-size:0.9rem;">출처: <span style="cursor:pointer; color:blue; text-decoration:underline;" onclick="showModal('✅ 소름! 출처가 공식 기관이 아닌 개인 아이디이거나 이름이 이상하다면 가짜 뉴스일 확률이 높아요!', () => { currentState='mission2_bias'; render(); })">나만알아TV (개인 채널)</span></p>
+            </div>
+            <p style="margin-top:15px; font-size:1rem; color:var(--highlight);">위 게시물에서 [출처] 부분을 클릭해 보세요!</p>
+        `,
+        next: "mission2_bias"
+    },
+    mission2_bias: {
+        chapter: "LEVEL 2: 기만의 부타코 (3/4)",
+        title: "실습 3: 우리는 왜 속을까요? (확증 편향)",
+        chars: ["tantei"],
+        dialogue: "사람들은 때로 **'내가 믿고 싶은 것'**만 믿으려 하는 마음이 있어요. <br>만약 여러분이 고구마를 정말 싫어한다면, 어떤 소문을 더 잘 믿을까요?",
         content: `
             <div class="interaction-area fade-in">
-                <button class="premium-btn" onclick="showModal('🚨 딩동댕! 개인 방송은 확인되지 않은 사실일 수 있어요.', () => { currentState='mission2_step2'; render(); })">잠깐! 출처가 불분명해!</button>
-                <button class="premium-btn" onclick="showModal('🚨 땡! 조회수가 많다고 무조건 믿으면 안 돼요.')">조회수 많으니까 진짜야!</button>
+                <button class="premium-btn" style="background:#4caf50" onclick="showModal('🚨 딩동댕! 내가 평소에 생각하던 것과 일치하는 정보를 더 쉽게 믿게 되는 현상을 \'확증 편향\'이라고 합니다. 부타코는 이 마음을 이용했어요.', () => { currentState='mission2_responsibility'; render(); })">1. 고구마는 맛도 없고 건강에도 나쁘다!</button>
+                <button class="premium-btn" style="background:#2196f3" onclick="showModal('🚨 땡! 내가 싫어하는 대상을 비난하는 정보를 사람들은 더 쉽게 믿는 경향이 있어요.')">2. 고구마는 영양이 풍부한 최고의 간식이다!</button>
             </div>
         `,
-        next: "mission2_step2"
+        next: "mission2_responsibility"
     },
-    mission2_step2: {
-        title: "실습: 정보 교차 검증 (2단계: 확인)",
-        chars: ["tantei", "piggo"],
-        dialogue: "그럼 공식 뉴스 사이트(네이버 뉴스 등)에서도 이 소식이 있는지 확인해봅시다.",
-        content: `
-            <div class="interaction-area fade-in">
-                <button class="fact-btn true" onclick="showModal('🚨 앗! 공식 뉴스에는 그런 소식이 없어요. 속지 마세요!')">뉴스에 나왔을 거야!</button>
-                <button class="fact-btn fake" onclick="showModal('✅ 역시! 공식 뉴스에는 관련 보도가 전혀 없군요.', () => { currentState='mission2_step3'; render(); })">뉴스에는 없어, 부타코의 거짓말이야!</button>
-            </div>
-        `,
-        next: "mission2_step3"
-    },
-    mission2_step3: {
-        title: "실습: 정보 교차 검증 (3단계: 판단)",
+    mission2_responsibility: {
+        chapter: "LEVEL 2: 기만의 부타코 (4/4)",
+        title: "실습 4: 발견했을 때 어떻게 할까요?",
         chars: ["brown"],
-        dialogue: "이제 결론을 내릴 시간입니다. 이 정보의 정체는?",
+        dialogue: "부타코의 가짜 뉴스를 발견했습니다! <br>마을의 평화를 위해 우리가 해야 할 가장 올바른 행동은?",
         content: `
             <div class="interaction-area fade-in">
-                <button class="premium-btn" style="background:#f44336" onclick="capturePiggo()">악의적으로 조작된 가짜 뉴스!</button>
-                <button class="premium-btn" style="background:#4caf50" onclick="showModal('🚨 땡! 이미 거짓임이 드러났습니다.')">실수로 잘못 퍼진 소문!</button>
+                <button class="premium-btn" onclick="showModal('🚨 땡! 가짜 뉴스를 공유하는 것도 나쁜 행동이 됩니다.')">1. 친구들에게 재미로 공유한다.</button>
+                <button class="premium-btn" style="background:#f44336" onclick="capturePiggo()">2. 가짜임을 알리고, 퍼뜨리지 않고 차단한다.</button>
             </div>
         `,
         next: "mission3_intro"
@@ -192,8 +192,8 @@ const states = {
         chapter: "LEVEL 3: 암호의 우탕 (1/5)",
         title: "정밀 수사: 복합 정보 검색",
         chars: ["brown", "uutan"],
-        dialogue: "단순한 검색으로는 안 되겠어요. <br>'북촌 한옥 마을'의 <strong>우편번호 5자리</strong>를 정확히 알아내야 합니다!",
-        hint: "힌트: 우편번호 5자리 숫자 (서울 종로구 북촌로...)",
+        dialogue: "단순한 검색으로는 안 되겠어요. <br>'북촌 한옥 마을'의 정확한 <strong>우편번호 5자리</strong>를 알아와 보시지!",
+        hint: "💡 <strong>검색 팁:</strong> 장소의 이름을 검색하고, 지도 정보나 백과사전 상단의 '우편번호' 항목을 확인하세요.",
         inputType: "search",
         placeholder: "5자리 우편번호 입력 (예: 12345)",
         correctAnswers: ["03059"],
@@ -203,8 +203,8 @@ const states = {
         chapter: "LEVEL 3: 암호의 우탕 (2/5)",
         title: "심화 미션 - 역사의 기록",
         chars: ["uutan"],
-        dialogue: "후우우~ 하나 맞췄군요. <br>우리 글자 '훈민정음(한글)'이 만들어진 <strong>연도</strong>는?",
-        hint: "힌트: 세종대왕님이 한글을 창제하신 해 (4자리 숫자)",
+        dialogue: "후우우~ 운이 좋았군요. <br>우리 글자 '훈민정음(한글)'이 만들어진 <strong>정확한 연도</strong>는?",
+        hint: "💡 <strong>검색 팁:</strong> '훈민정음 창제 연도' 키워드로 검색하고, 여러 자료를 비교해 보세요.",
         inputType: "search",
         placeholder: "연도 입력 (예: 1900)",
         correctAnswers: ["1443"],
@@ -214,8 +214,8 @@ const states = {
         chapter: "LEVEL 3: 암호의 우탕 (3/5)",
         title: "심화 미션 - 서울의 높이",
         chars: ["uutan"],
-        dialogue: "제법이군요. 그럼 'N서울타워(남산타워)' 자체의 <strong>높이</strong>는 몇 미터(m)일까요? <br>(탑 자체의 높이만 입력하세요!)",
-        hint: "힌트: 236... (소수점 포함하여 정확히 검색!)",
+        dialogue: "제법이군요. 그럼 'N서울타워(남산타워)' 자체의 <strong>순수 탑 높이</strong>는 몇 미터(m)일까요?",
+        hint: "💡 <strong>검색 팁:</strong> 산의 높이와 탑의 높이를 구분해서 찾아야 합니다. 'N서울타워 본체 높이'를 정확히 필터링하세요.",
         inputType: "search",
         placeholder: "숫자만 입력 (예: 100.5)",
         correctAnswers: ["236.7"],
@@ -225,8 +225,8 @@ const states = {
         chapter: "LEVEL 3: 암호의 우탕 (4/5)",
         title: "심화 미션 - 인류의 발자국",
         chars: ["uutan"],
-        dialogue: "대단해요. 그럼 지구 밖으로 가볼까요? <br>달에 처음으로 발을 내디딘 사람의 풀네임은?",
-        hint: "힌트: 닐 암스트... (6글자)",
+        dialogue: "대단해요. 그럼 지구 밖으로 가볼까요? <br>달에 처음으로 착륙하여 발을 내디딘 우주선 선장의 이름은?",
+        hint: "💡 <strong>검색 팁:</strong> '인류 첫 달 착륙' 혹은 '아폴로 11호 선장' 키워드로 인물 이름을 검색해 보세요.",
         inputType: "search",
         placeholder: "이름 입력",
         correctAnswers: ["닐 암스트롱", "neil armstrong"],
@@ -236,8 +236,8 @@ const states = {
         chapter: "LEVEL 3: 암호의 우탕 (5/5)",
         title: "심화 미션 - 우주를 향해",
         chars: ["uutan"],
-        dialogue: "마지막 문제입니다. 우리 나라 최초의 인공위성 이름은?",
-        hint: "힌트: 우리별... (4글자)",
+        dialogue: "마지막 문제입니다. 우리 나라 기술로 만든 '최초의 인공위성' 이름은 무엇일까요?",
+        hint: "💡 <strong>검색 팁:</strong> '대한민국 1호 인공위성'을 검색하고, 공식 명칭을 확인하세요.",
         inputType: "search",
         placeholder: "인공위성 이름 입력",
         correctAnswers: ["우리별 1호", "우리별1호"],
@@ -251,7 +251,7 @@ const states = {
         next: "final_battle_intro"
     },
     final_battle_intro: {
-        chapter: "MASTER STAGE: 괴도 유",
+        chapter: "MASTER STAGE: <괴도 유>",
         title: "최종 대결 - 비판적 사고의 끝",
         chars: ["tantei", "kaito_u"],
         dialogue: "내 부하들을 모두 잡다니... 하지만 고구마는 이미 내 '비밀 디지털 금고'에 들어있다! <br>이 금고를 열려면 정보의 <strong>'신뢰성'</strong>을 판단하는 마지막 시험을 통과해야 해!",
@@ -298,7 +298,7 @@ const states = {
     success: {
         title: "연합군 완전 소탕 및 명예 훈장",
         chars: ["all"],
-        dialogue: "진정한 리터러시 마스터의 탄생이군요! <br>괴도 유 연합군을 모두 물리치고 마을의 평화를 지켜냈습니다. <br>자네는 이제 전설의 디지털 수사관입니다!",
+        dialogue: "진정한 리터러시 마스터의 탄생이군요! <br><괴도 유> 연합군을 모두 물리치고 마을의 평화를 지켜냈습니다. <br>자네는 이제 전설의 디지털 수사관입니다!",
         content: `
             <div class="text-center fade-in">
                 <div class="certificate-container">
