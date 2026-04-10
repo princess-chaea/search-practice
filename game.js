@@ -194,7 +194,7 @@ const states = {
         chapter: "LEVEL 3: 암호의 우탕",
         title: "심화 미션 - 정보 분석과 필터링",
         chars: ["uutan"],
-        dialogue: "후우우~ 역시 똑똑하군요. 하지만 이 암호는 못 풀걸요? <br>'서울에서 가장 오래된 한옥 마을'의 이름을 알아내 그곳의 우편번호 앞자리를 입력하세요!",
+        dialogue: "후우우~ 역시 똑똑하군요. 하지만 이 암호는 못 풀걸요? <br>'서울에서 가장 오래된 한옥 마을'의 이름을 알아내 그곳의 정확한 주소를 찾아보세요!",
         buttonText: "심화 수사 시작",
         next: "mission3_uutan"
     },
@@ -204,11 +204,11 @@ const states = {
         impactText: "우탕의 기지를 발견했습니다! 추격 시작!!",
         title: "정밀 수사: 복합 정보 검색",
         chars: ["brown", "uutan"],
-        dialogue: "단순한 검색으로는 안 되겠어요. <br>'북촌 한옥 마을'의 정확한 <strong>우편번호 5자리</strong>를 알아와 보시지!",
-        hint: "💡 <strong>검색 팁:</strong> 장소의 이름을 검색하고, 지도 정보나 백과사전 상단의 '우편번호' 항목을 확인하세요.",
+        dialogue: "단순한 검색으로는 안 되겠어요. <br>'북촌 한옥 마을'의 정확한 주소를 찾아보고, 주소의 마지막에 있는 <strong>건물 번호(숫자)</strong>를 입력해 보시지!",
+        hint: "💡 <strong>검색 팁:</strong> '북촌 한옥마을 주소'를 검색하고, '서울특별시 종로구 계동길' 뒤에 오는 숫자를 확인하세요.",
         inputType: "search",
-        placeholder: "5자리 우편번호 입력 (예: 12345)",
-        correctAnswers: ["03059"],
+        placeholder: "건물 번호 숫자 입력",
+        correctAnswers: ["37"],
         next: "mission3_2"
     },
     mission3_2: {
@@ -518,12 +518,12 @@ function nextStep() {
 }
 
 function checkAnswer() {
-    const val = document.getElementById('user-input').value.trim().toLowerCase();
+    const val = document.getElementById('user-input').value.trim().toLowerCase().replace(/\s+/g, '');
     const data = states[currentState];
     const fb = document.getElementById('feedback');
     const wrapper = document.getElementById('game-wrapper');
 
-    if (data.correctAnswers.some(ans => val.includes(ans.toLowerCase()))) {
+    if (data.correctAnswers.some(ans => val.includes(ans.toLowerCase().replace(/\s+/g, '')))) {
         // Impact Effect
         const impact = document.getElementById('success-impact-overlay');
         const impactText = impact.querySelector('.impact-text');
